@@ -1,0 +1,47 @@
+body
+{
+    text-align: center;
+    color: white;
+}
+
+button
+{
+    margin: 10px 0;
+    padding: 3px 10px;
+    color: rgb(11, 68, 11);
+    font-weight: bold;
+    background-color: rgb(201, 168, 21);
+
+    border-radius: 5px;
+    
+}
+
+.main
+{
+    background-color: rgb(11, 68, 11);
+    border: 4px solid rgb(201, 168, 21);
+
+    width: 300px;
+    height: 250px;
+
+    margin: 50px auto;
+    padding: 5px 10px;
+
+    border-radius: 5px;
+    
+}
+
+p
+{
+    display: inline;
+}
+
+#title
+{
+    color: rgb(201, 168, 21);
+}
+
+.card-scores
+{
+    margin-bottom: 10px;
+}
