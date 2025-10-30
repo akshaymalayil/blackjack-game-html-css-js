@@ -1,35 +1,87 @@
 //1.  create two variables, firstCard & secondCard
-let firstCard = 11
-let secondCard = 10
+let firstCard = 2
+let secondCard = 11
+let cards = [firstCard, secondCard]
+
 let hasBlackJack = false
 let isAlive = true
-
-document.getElementById("card-1").innerText=firstCard
-document.getElementById("card-2").innerText=secondCard
-
-// 2.var sum for sum of two cards
 let sum = firstCard + secondCard
+let message = ""
+let drawCard = false
 
-document.getElementById("card-sum").innerText=sum
+// store mesage-txt 
+let messageTxt = document.getElementById("message-txt")
 
-if(sum < 21)
+
+let cardEl = document.getElementById("card-el")
+let cardSum = document.getElementById("card-sum")
+
+
+function startGame()
 {
-    console.log("do u want to draw a new card 🤔")
+    renderGame()
 }
-else if( sum === 21)
+function renderGame()
 {
-    console.log("wohoo! You've got Blackjack 🥳")
-    hasBlackJack = true
-}else
-{
-    console.log("You've out of the game 😭")
-    isAlive = false
+    cardEl.textContent = "Cards: "+cards[0]+ " "+ cards[1]
+    cardSum.innerText="Sum: "+sum
+
+    if(sum < 21)
+    {
+        message = "do u want to draw a new card "
+        drawCard = true
+        
+    }
+    else if( sum === 21)
+    {
+        message = "wohoo! You've got Blackjack "
+        hasBlackJack = true
+    }
+    else
+    {
+        message = "You've out of the game "
+        isAlive = false
+    }
+
+
+    messageTxt.textContent = message
+    // console.log()
 }
+
+
+function newCard()
+{
+    if(drawCard)
+    {
+        let thirdCard = 2
+        let card3 = document.getElementById("card-3")
+
+        card3.innerText = thirdCard
+
+        sum = sum + thirdCard
+        cardSum.innerText = sum
+
+        if(sum >= 21)
+            drawCard = false
+
+    }
+    else
+    {
+        alert("can't draw new card")
+    }
+    
+}
+
+
+
+
+
+
+
 
 
 // CASH OUT
-let cash = 0
-if(hasBlackJack)
-{
-    console.log("got cashback")
-}
+
+    // 
+
+
