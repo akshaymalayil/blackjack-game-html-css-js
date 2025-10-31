@@ -7,7 +7,7 @@ let hasBlackJack = false
 let isAlive = true
 let sum = firstCard + secondCard
 let message = ""
-let drawCard = false
+// let drawCard = false
 
 // store mesage-txt 
 let messageTxt = document.getElementById("message-txt")
@@ -62,13 +62,19 @@ function renderGame()
 
 function newCard()
 {
-    
-    let newCard = 4
-    cards.push(newCard)
+    if(isAlive)
+    {
+        let newCard = 4
+        cards.push(newCard)
 
-    sum = sum + newCard
+        sum = sum + newCard
 
-    renderGame()
+        renderGame()
+    }
+    else
+    {
+        alert("you're out of the game")
+    }
     
 }
 
