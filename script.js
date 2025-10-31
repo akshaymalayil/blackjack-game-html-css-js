@@ -1,5 +1,5 @@
 //1.  create two variables, firstCard & secondCard
-let firstCard = 2
+let firstCard = 6
 let secondCard = 11
 let cards = [firstCard, secondCard]
 
@@ -21,15 +21,26 @@ function startGame()
 {
     renderGame()
 }
+
+
 function renderGame()
 {
-    cardEl.textContent = "Cards: "+cards[0]+ " "+ cards[1]
+    // cardEl.textContent = "Cards: "+cards[0]+ " "+ cards[1]
+
+    cardEl.textContent = "Cards: "
+    for(let i = 0; i < cards.length; i++)
+    {
+        cardEl.textContent = cardEl.textContent + cards[i] + " "
+
+    }
+    
+
     cardSum.innerText="Sum: "+sum
 
     if(sum < 21)
     {
         message = "do u want to draw a new card "
-        drawCard = true
+        // drawCard = true
         
     }
     else if( sum === 21)
@@ -51,37 +62,14 @@ function renderGame()
 
 function newCard()
 {
-    if(drawCard)
-    {
-        let thirdCard = 2
-        let card3 = document.getElementById("card-3")
+    
+    let newCard = 4
+    cards.push(newCard)
 
-        card3.innerText = thirdCard
+    sum = sum + newCard
 
-        sum = sum + thirdCard
-        cardSum.innerText = sum
-
-        if(sum >= 21)
-            drawCard = false
-
-    }
-    else
-    {
-        alert("can't draw new card")
-    }
+    renderGame()
     
 }
-
-
-
-
-
-
-
-
-
-// CASH OUT
-
-    // 
 
 
