@@ -1,13 +1,13 @@
-//1.  create two variables, firstCard & secondCard
-let firstCard = getRandomCard()
-let secondCard = getRandomCard()
-let cards = [firstCard, secondCard]
 
+let cards = []
+let sum = 0
+
+let gameStart = false
 let hasBlackJack = false
-let isAlive = true
-let sum = firstCard + secondCard
+let isAlive = false
+
 let message = ""
-// let drawCard = false
+
 
 // store mesage-txt 
 let messageTxt = document.getElementById("message-txt")
@@ -16,6 +16,12 @@ let messageTxt = document.getElementById("message-txt")
 let cardEl = document.getElementById("card-el")
 let cardSum = document.getElementById("card-sum")
 
+
+let playerName = "Akshay"
+let playerChips = 145
+let playerEl = document.getElementById("player-el")
+
+playerEl.textContent = playerName+": $"+playerChips
 
 // function to get random card
 function getRandomCard()
@@ -34,6 +40,16 @@ function getRandomCard()
 
 function startGame()
 {
+    gameStart = true
+    isAlive = true
+
+
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    sum = firstCard + secondCard
+
+    cards = [firstCard, secondCard]
+
     renderGame()
 }
 
@@ -55,7 +71,7 @@ function renderGame()
     if(sum < 21)
     {
         message = "do u want to draw a new card "
-        // drawCard = true
+       
         
     }
     else if( sum === 21)
@@ -77,19 +93,25 @@ function renderGame()
 
 function newCard()
 {
-    if(isAlive)
+    if(gameStart)
     {
-        let newCard = getRandomCard()
-        cards.push(newCard)
+            if(isAlive && !hasBlackJack)
+            {
+                let newCard = getRandomCard()
+                cards.push(newCard)
 
-        sum = sum + newCard
+                sum = sum + newCard
 
-        renderGame()
+                renderGame()
+            }
+            else
+            {
+                alert("you're out of the game")
+            }
     }
     else
-    {
-        alert("you're out of the game")
-    }
+        alert("Cant draw card before starting the game.")
+
     
 }
 
