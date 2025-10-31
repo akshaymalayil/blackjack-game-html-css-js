@@ -1,6 +1,6 @@
 //1.  create two variables, firstCard & secondCard
-let firstCard = 6
-let secondCard = 11
+let firstCard = getRandomCard()
+let secondCard = getRandomCard()
 let cards = [firstCard, secondCard]
 
 let hasBlackJack = false
@@ -15,6 +15,21 @@ let messageTxt = document.getElementById("message-txt")
 
 let cardEl = document.getElementById("card-el")
 let cardSum = document.getElementById("card-sum")
+
+
+// function to get random card
+function getRandomCard()
+{
+    let random = Math.floor(Math.random()*13) + 1
+
+    if(random === 1)
+        return 11
+    else if(random > 10 )
+        return 10
+
+    return random
+}
+
 
 
 function startGame()
@@ -64,7 +79,7 @@ function newCard()
 {
     if(isAlive)
     {
-        let newCard = 4
+        let newCard = getRandomCard()
         cards.push(newCard)
 
         sum = sum + newCard
