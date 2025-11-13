@@ -17,11 +17,23 @@ let cardEl = document.getElementById("card-el")
 let cardSum = document.getElementById("card-sum")
 
 
-let playerName = "Akshay"
-let playerChips = 145
+
+// player-prize
+
+let player =
+{
+    name : "Akshay",
+    prize: 160
+};
+
 let playerEl = document.getElementById("player-el")
 
-playerEl.textContent = playerName+": $"+playerChips
+playerEl.textContent = player.name+": $"+player.prize
+
+
+
+
+
 
 // function to get random card
 function getRandomCard()
